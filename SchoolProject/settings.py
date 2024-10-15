@@ -14,12 +14,14 @@ SECRET_KEY = 'django-insecure-^g9+6c%qjba7foozdbpq69a38ranj09#y%b8gn8!^d46l5v^eu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-CURRENT_URL = 'http://127.0.0.1:8000'#TODO IP da maquina
+# ALLOWED_HOSTS = []
+# CURRENT_URL = 'http://127.0.0.1:8000'#TODO IP da maquina
 
-CORS_ALLOWED_ORIGINS = ['http://localhost:3000', 'http://127.0.0.1:3000']
+# CORS_ALLOWED_ORIGINS = ['http://localhost:3000', 'http://127.0.0.1:3000']
 
-
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:4200',
+]
 
 # Application definition
 
@@ -30,21 +32,21 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-#TODO rest framework
+    # TODO rest framework
     'rest_framework',
-    
-#TODO cors
-    'corsheaders',
-    
-#TODO Apps
 
-    'StudentApp',   
+    # TODO cors
+    'corsheaders',
+
+    # TODO Apps
+
+    'StudentApp',
 
 ]
 
 
 MIDDLEWARE = [
-     'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -75,7 +77,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'SchoolProject.wsgi.application'
 
 
-
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
@@ -89,12 +90,9 @@ DATABASES = {
         'PORT': '3306',
         "OPTIONS": {
             'charset': 'utf8mb4',
-            }
+        }
     }
 }
-
-
-
 
 
 # Password validation
@@ -138,4 +136,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+# TODO estará conectado em backend
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_ALL_HEADERS = True
